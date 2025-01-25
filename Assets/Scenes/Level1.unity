@@ -756,6 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   rotateSpeed: 1
+  bulletTimeout: 0.2
   gun: {fileID: 1735416607}
 --- !u!61 &6187610075220953603
 BoxCollider2D:

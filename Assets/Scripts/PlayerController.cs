@@ -4,16 +4,19 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float rotateSpeed;
+    public float bulletTimeout;
     public Gun gun;
-    Rigidbody2D rbd;
 
+    Rigidbody2D rbd;
     Transform weapon;
+    float timeout;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbd = transform.GetComponent<Rigidbody2D>();
         weapon = transform.GetChild(0);
+        timeout = bulletTimeout;
     }
 
     // Update is called once per frame
@@ -41,9 +44,13 @@ public class PlayerController : MonoBehaviour
         weapon.RotateAround(transform.position,
             new Vector3(0, 0, -1), yMotion * rotateSpeed);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            if (gun != null) {
-                gun.Shoot();
+        if (Input.GetKey(KeyCode.Space)) {
+            if (timeout > 0)
+                timeout -= Time.deltaTime;
+            else {
+                if (gun != null)
+                    gun.Shoot();
+                timeout = bulletTimeout;
             }
         }
     }

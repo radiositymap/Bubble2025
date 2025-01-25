@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed;
 
-    public List<GameObject> bullets = new List<GameObject>();
+    List<GameObject> bullets = new List<GameObject>();
 
     public void Shoot() {
         GameObject newBullet = GetBullet(transform.position);
@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour
         newBullet.GetComponent<Rigidbody2D>().AddForce(bulletForce);
     }
 
-    public GameObject GetBullet(Vector3 pos){
+    public GameObject GetBullet(Vector3 pos) {
         GameObject newBullet = null;
         foreach (GameObject bullet in bullets) {
             if (!bullet.activeInHierarchy) {
