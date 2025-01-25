@@ -542,24 +542,12 @@ PrefabInstance:
       value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.54
+      value: -2.19
       objectReference: {fileID: 0}
     - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -593,10 +581,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4610913032829231231, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
       propertyPath: personCollider
       value: 
@@ -606,29 +590,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1051572283324473617}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: states.Array.size
+      propertyPath: healthStates.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: 'states.Array.data[0]'
+      propertyPath: 'healthStates.Array.data[0]'
       value: 
       objectReference: {fileID: 2030811907, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: 'states.Array.data[1]'
+      propertyPath: 'healthStates.Array.data[1]'
       value: 
       objectReference: {fileID: 1956135225, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: 'states.Array.data[2]'
+      propertyPath: 'healthStates.Array.data[2]'
       value: 
       objectReference: {fileID: 1258092208, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: 'states.Array.data[3]'
+      propertyPath: 'healthStates.Array.data[3]'
       value: 
       objectReference: {fileID: -310747527, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
-    - target: {fileID: 7781235876254240393, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2030811907, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

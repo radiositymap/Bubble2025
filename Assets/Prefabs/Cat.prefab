@@ -133,7 +133,11 @@ MonoBehaviour:
   personTransform: {fileID: 0}
   maxHealth: 9
   health: 0
-  healthStates: []
+  healthStates:
+  - {fileID: 2030811907, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
+  - {fileID: 1956135225, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
+  - {fileID: 1258092208, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
+  - {fileID: -310747527, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
   jumpHeight: 2
   jumpVelocity: 10
 --- !u!70 &1831937002727883385

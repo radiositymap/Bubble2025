@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour
 
     // Dirt state change
     private SpriteRenderer spriteRenderer;
+    private CapsuleCollider2D catCollider;
     public int maxHealth = 9;
     public int health;
     public Sprite[] healthStates;
@@ -23,8 +24,11 @@ public class Cat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Health management
         // maxHealth = hitsPerState * (healthStates.Length - 1);
         health = maxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        catCollider = GetComponent<CapsuleCollider2D>();
 
         // Movement
         rb = GetComponent<Rigidbody2D>();
@@ -46,8 +50,21 @@ public class Cat : MonoBehaviour
                 JumpToPosition(personTransform.position);
             }
 
-            int hitsTaken = maxHealth - health;
-            spriteRenderer.sprite = healthStates[hitsTaken / maxHealth * (healthStates.Length - 1)];
+            // state change
+            float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
+            int stateIdx = (int)(hitPercent * (healthStates.Length - 1));
+            spriteRenderer.sprite = healthStates[stateIdx];
+
+            // collision adjustment
+            // float stateScale = stateIdx switch
+            // {
+            //     0 => 1f,
+            //     1 => 5f / 6f,
+            //     2 => 1f / 2f,
+            //     _ => 1f
+            // };
+            // Debug.Log(stateScale * catCollider.size.x);
+            // catCollider.size = new Vector2((float)(catCollider.size.x * stateScale), catCollider.size.y);
         }
     }
 
@@ -79,7 +96,11 @@ public class Cat : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Floor"))
         {
-            Debug.Log("Grounded");
+            isGrounded = true;
+        }
+        if (collider.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("ow!");
             isGrounded = true;
         }
     }
