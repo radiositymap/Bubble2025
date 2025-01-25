@@ -49,22 +49,6 @@ public class Cat : MonoBehaviour
             {
                 JumpToPosition(personTransform.position);
             }
-
-            // state change
-            float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
-            int stateIdx = (int)(hitPercent * (healthStates.Length - 1));
-            spriteRenderer.sprite = healthStates[stateIdx];
-
-            // collision adjustment
-            // float stateScale = stateIdx switch
-            // {
-            //     0 => 1f,
-            //     1 => 5f / 6f,
-            //     2 => 1f / 2f,
-            //     _ => 1f
-            // };
-            // Debug.Log(stateScale * catCollider.size.x);
-            // catCollider.size = new Vector2((float)(catCollider.size.x * stateScale), catCollider.size.y);
         }
     }
 
@@ -92,16 +76,39 @@ public class Cat : MonoBehaviour
         rb.linearVelocity = new Vector2(v0x * Mathf.Sign(targetPosition.x - transform.position.x), v0y);
     }
 
+    private void handleHit()
+    {
+        // state change
+        float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
+        int stateIdx = (int)(hitPercent * (healthStates.Length - 1));
+        spriteRenderer.sprite = healthStates[stateIdx];
+
+        // collision size adjustment
+        // float stateScale = stateIdx switch
+        // {
+        //     0 => 1f,
+        //     1 => 5f / 6f,
+        //     2 => 1f / 2f,
+        //     _ => 1f
+        // };
+        // Debug.Log(stateScale * catCollider.size.x);
+        // catCollider.size = new Vector2((float)(catCollider.size.x * stateScale), catCollider.size.y);
+    }
+
     private void OnCollisionStay2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Floor"))
         {
             isGrounded = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collider)
+    {
         if (collider.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("ow!");
-            isGrounded = true;
+            health -= 1;
+            handleHit();
         }
     }
 
