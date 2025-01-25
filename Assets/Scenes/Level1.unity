@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3179479670397897533, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3273588131519337554, guid: dd4953090c82ba4299c2714b85ac271a, type: 3}
     - target: {fileID: 4215187728780860530, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.437
@@ -942,6 +946,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -11.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7612857431555643266, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
