@@ -105,6 +105,8 @@ public class Cat : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
+        if (health < 0)
+            return;
         if (collider.gameObject.CompareTag("Bullet"))
         {
             health -= 1;
