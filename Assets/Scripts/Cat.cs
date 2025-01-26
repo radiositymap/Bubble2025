@@ -18,7 +18,7 @@ public class Cat : MonoBehaviour
     // Movement
     private Rigidbody2D rb;
     private bool isGrounded;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 5f;
     public float jumpVelocity = 10f;
 
     Vector2 colliderSize;
@@ -36,10 +36,7 @@ public class Cat : MonoBehaviour
         // Movement
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), personCollider);
-
-
-
+        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), personCollider);
     }
 
     // Update is called once per frame

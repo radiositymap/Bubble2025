@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
     public float bulletTimeout;
     public Gun gun;
+    public DirtyScreen dirtyScreen;
 
     Rigidbody2D rbd;
     Transform weapon;
@@ -13,6 +15,9 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     BoxCollider2D collider;
     Vector2 colliderSize;
+
+    public int maxHealth = 16;
+    public int health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +28,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         collider = GetComponent<BoxCollider2D>();
         colliderSize = collider.size;
+
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -68,4 +75,29 @@ public class PlayerController : MonoBehaviour
             angle -= 360;
         return Mathf.Clamp(angle, min, max);
     }
+
+    private void OnCollisionEnter2D(Collision2D collider)
+    {
+        Debug.Log("Collided");
+        if (health < 0)
+            return;
+        if (collider.gameObject.CompareTag("Cat"))
+        {
+            Debug.Log("HitCat");
+            health -= 1;
+            handleHit();
+        }
+    }
+
+    private void handleHit()
+    {
+        // state change
+        float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
+        int stateIdx = (int)(hitPercent * (dirtyScreen.screenNum - 1));
+        dirtyScreen.SetScreen(stateIdx);
+
+        // screen turns black
+        // TODO: spriteRenderer.sprite = healthStates[stateIdx];
+
+  }
 }
