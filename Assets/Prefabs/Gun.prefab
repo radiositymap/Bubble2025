@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4725024268061153854}
+  bulletSpeed: 0
+  bullets: []
 --- !u!1 &4725024268061153854
 GameObject:
   m_ObjectHideFlags: 0

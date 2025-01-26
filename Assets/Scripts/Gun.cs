@@ -9,7 +9,8 @@ public class Gun : MonoBehaviour
 
     List<GameObject> bullets = new List<GameObject>();
 
-    public void Shoot() {
+    public void Shoot()
+    {
         GameObject newBullet = GetBullet(transform.position);
         if (newBullet == null)
             return;
@@ -19,8 +20,10 @@ public class Gun : MonoBehaviour
 
     public GameObject GetBullet(Vector3 pos) {
         GameObject newBullet = null;
-        foreach (GameObject bullet in bullets) {
-            if (!bullet.activeInHierarchy) {
+        foreach (GameObject bullet in bullets)
+        {
+            if (!bullet.activeInHierarchy)
+            {
                 bullet.SetActive(true);
                 bullet.transform.SetPositionAndRotation(pos, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
@@ -28,21 +31,28 @@ public class Gun : MonoBehaviour
                 break;
             }
         }
-        if (newBullet == null) {
+        if (newBullet == null)
+        {
             newBullet = Instantiate(bullet, pos, Quaternion.identity);
             newBullet.SetActive(true);
             bullets.Add(newBullet);
+
+            bullet.AddComponent<CircleCollider2D>();
+            bullet.tag = "Bullet";
         }
         return newBullet;
     }
 
-    public void Update(){
-        foreach (GameObject bullet in bullets) {
-            if (Math.Abs(bullet.transform.position.x)  > 20 ||
-                Math.Abs(bullet.transform.position.y)  > 20) {
-                    bullet.SetActive(false);
+    public void Update()
+    {
+        foreach (GameObject bullet in bullets)
+        {
+            if (Math.Abs(bullet.transform.position.x) > 20 ||
+                Math.Abs(bullet.transform.position.y) > 20)
+            {
+                bullet.SetActive(false);
             }
         }
-   }
+    }
 
 }
