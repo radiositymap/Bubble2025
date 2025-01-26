@@ -5,13 +5,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject bullet;
+    public Transform shootingPoint;
     public float bulletSpeed;
 
     List<GameObject> bullets = new List<GameObject>();
 
     public void Shoot()
     {
-        GameObject newBullet = GetBullet(transform.position);
+        GameObject newBullet = GetBullet(shootingPoint.position);
         if (newBullet == null)
             return;
         Vector3 bulletForce = transform.right * bulletSpeed;

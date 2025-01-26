@@ -47,8 +47,10 @@ public class PlayerController : MonoBehaviour
         }
 
         float yMotion = Input.GetAxis("Vertical");
-        weapon.RotateAround(transform.position,
+        weapon.RotateAround(weapon.position,
             new Vector3(0, 0, -1), yMotion * rotateSpeed);
+        weapon.localEulerAngles = new Vector3(0, 0,
+            ClampAngle(weapon.localEulerAngles.z, -25.0f, 25.0f));
 
         if (Input.GetKey(KeyCode.Space)) {
             if (timeout > 0)
@@ -59,5 +61,11 @@ public class PlayerController : MonoBehaviour
                 timeout = bulletTimeout;
             }
         }
+    }
+
+    float ClampAngle(float angle, float min, float max) {
+        if (angle > 180)
+            angle -= 360;
+        return Mathf.Clamp(angle, min, max);
     }
 }
