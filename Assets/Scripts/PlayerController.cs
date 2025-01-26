@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviour
                     gun.Shoot();
                 timeout = bulletTimeout;
             }
+
+            if (health <= 0)
+                Application.LoadLevel(0);
         }
     }
 
