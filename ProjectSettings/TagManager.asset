@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Bullet
+  - Cat
   layers:
   - Default
   - TransparentFX

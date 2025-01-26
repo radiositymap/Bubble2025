@@ -113,6 +113,7 @@ public class Cat : MonoBehaviour
         if (collider.gameObject.CompareTag("Bullet"))
         {
             health -= 1;
+            collider.gameObject.SetActive(false);
             handleHit();
         }
     }
