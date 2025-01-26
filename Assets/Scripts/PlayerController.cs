@@ -76,14 +76,12 @@ public class PlayerController : MonoBehaviour
         return Mathf.Clamp(angle, min, max);
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Collided");
         if (health < 0)
             return;
         if (collider.gameObject.CompareTag("Cat"))
         {
-            Debug.Log("HitCat");
             health -= 1;
             handleHit();
         }
@@ -95,9 +93,5 @@ public class PlayerController : MonoBehaviour
         float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
         int stateIdx = (int)(hitPercent * (dirtyScreen.screenNum - 1));
         dirtyScreen.SetScreen(stateIdx);
-
-        // screen turns black
-        // TODO: spriteRenderer.sprite = healthStates[stateIdx];
-
   }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7781235876254240393}
   - component: {fileID: 7511778120699508078}
   - component: {fileID: 5066735964937347615}
-  - component: {fileID: 1831937002727883385}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -140,40 +139,3 @@ MonoBehaviour:
   - {fileID: -310747527, guid: 2d8540c612ec04faca8f3b3d6908db5c, type: 3}
   jumpHeight: 2
   jumpVelocity: 10
---- !u!70 &1831937002727883385
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767375369717924266}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.65, y: -0.44}
-  m_Size: {x: 7.12, y: 9.69}
-  m_Direction: 0

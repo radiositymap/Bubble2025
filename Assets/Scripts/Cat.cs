@@ -27,16 +27,15 @@ public class Cat : MonoBehaviour
     void Start()
     {
         // Health management
-        // maxHealth = hitsPerState * (healthStates.Length - 1);
         health = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        catCollider = GetComponent<CapsuleCollider2D>();
+        catCollider = GetComponentInChildren<CapsuleCollider2D>();
         colliderSize = catCollider.size;
 
         // Movement
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-        //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), personCollider);
+        Physics2D.IgnoreCollision(catCollider, personCollider);
     }
 
     // Update is called once per frame
