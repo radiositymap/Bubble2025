@@ -10,13 +10,19 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbd;
     Transform weapon;
     float timeout;
+    Animator animator;
+    BoxCollider2D collider;
+    Vector2 colliderSize;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rbd = transform.GetComponent<Rigidbody2D>();
+        rbd = GetComponent<Rigidbody2D>();
         weapon = transform.GetChild(0);
         timeout = bulletTimeout;
+        animator = GetComponent<Animator>();
+        collider = GetComponent<BoxCollider2D>();
+        colliderSize = collider.size;
     }
 
     // Update is called once per frame
@@ -30,14 +36,14 @@ public class PlayerController : MonoBehaviour
             transform.localEulerAngles = Vector3.zero;
 
         if (Input.GetKeyDown(KeyCode.S)) {
-            // TODO swap sprite
-            // reduce collider
-            if (transform.localScale.y > 0.6f)
-                transform.localScale = new Vector3(1f, 0.5f, 1f);
+            animator.Play("crouch");
+            collider.size = new Vector2(colliderSize.x, colliderSize.y*0.75f);
+            collider.offset = new Vector2(0, -0.3f);
         }
         if (Input.GetKeyUp(KeyCode.S)) {
-            if (transform.localScale.y < 0.6f)
-                transform.localScale = Vector3.one;
+            animator.Play("uncrouch");
+            collider.size = colliderSize;
+            collider.offset = Vector2.zero;
         }
 
         float yMotion = Input.GetAxis("Vertical");
