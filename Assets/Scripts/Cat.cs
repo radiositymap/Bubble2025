@@ -21,6 +21,8 @@ public class Cat : MonoBehaviour
     public float jumpHeight = 3f;
     public float jumpVelocity = 10f;
 
+    Vector2 colliderSize;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,11 +31,13 @@ public class Cat : MonoBehaviour
         health = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         catCollider = GetComponent<CapsuleCollider2D>();
+        colliderSize = catCollider.size;
 
         // Movement
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), personCollider);
+
 
 
     }
@@ -84,15 +88,14 @@ public class Cat : MonoBehaviour
         spriteRenderer.sprite = healthStates[stateIdx];
 
         // collision size adjustment
-        // float stateScale = stateIdx switch
-        // {
-        //     0 => 1f,
-        //     1 => 5f / 6f,
-        //     2 => 1f / 2f,
-        //     _ => 1f
-        // };
-        // Debug.Log(stateScale * catCollider.size.x);
-        // catCollider.size = new Vector2((float)(catCollider.size.x * stateScale), catCollider.size.y);
+        Vector2 stateScale = stateIdx switch
+        {
+            0 => Vector2.one,
+            1 => new Vector2(1f, 0.6f),
+            2 => new Vector2(0.5f, 0.4f),
+            _ => new Vector2(0.2f, 0.15f)
+        };
+        catCollider.size = colliderSize * stateScale;
     }
 
     private void OnCollisionStay2D(Collision2D collider)

@@ -594,6 +594,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
+      propertyPath: maxHealth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066735964937347615, guid: a0e19d3b09ed347fbbcf7e4078444f9a, type: 3}
       propertyPath: personCollider
       value: 
       objectReference: {fileID: 6187610075220953603}
