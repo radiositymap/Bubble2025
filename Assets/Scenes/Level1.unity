@@ -146,8 +146,8 @@ Transform:
   m_GameObject: {fileID: 141869312}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 1, z: 1}
+  m_LocalPosition: {x: 8.5, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633165088}
@@ -406,8 +406,8 @@ Transform:
   m_GameObject: {fileID: 1723943126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 12, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
+  m_LocalScale: {x: 18, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633165088}
@@ -641,8 +641,8 @@ Transform:
   m_GameObject: {fileID: 2103224518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 1, z: 1}
+  m_LocalPosition: {x: -8.5, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633165088}
@@ -757,7 +757,7 @@ Transform:
   m_GameObject: {fileID: 2067227740388877559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.34, y: -2.03, z: 0}
+  m_LocalPosition: {x: -6.35, y: -2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   rotateSpeed: 1
-  bulletTimeout: 0.2
+  bulletTimeout: 0.1
   gun: {fileID: 1735416607}
 --- !u!61 &6187610075220953603
 BoxCollider2D:
@@ -1038,6 +1038,10 @@ PrefabInstance:
     - target: {fileID: 4249732236165477397, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725024268061153854, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4917123545271496336, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
       propertyPath: m_LocalScale.x
