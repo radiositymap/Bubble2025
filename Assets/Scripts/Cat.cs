@@ -11,6 +11,7 @@ public class Cat : MonoBehaviour
     // Dirt state change
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D catCollider;
+    private BoxCollider2D catTrigger;
     public int maxHealth = 9;
     public int health;
     public Sprite[] healthStates;
@@ -29,7 +30,8 @@ public class Cat : MonoBehaviour
         // Health management
         health = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        catCollider = GetComponentInChildren<CapsuleCollider2D>();
+        catCollider = transform.Find("Collider").GetComponent<CapsuleCollider2D>();
+        catTrigger = transform.Find("Trigger").GetComponent<BoxCollider2D>();
         colliderSize = catCollider.size;
 
         // Movement
@@ -92,6 +94,9 @@ public class Cat : MonoBehaviour
             _ => new Vector2(0.2f, 0.15f)
         };
         catCollider.size = colliderSize * stateScale;
+        catTrigger.size = colliderSize * stateScale;
+        if (stateIdx >= 3)
+            catTrigger.enabled = false;
     }
 
     private void OnCollisionStay2D(Collision2D collider)

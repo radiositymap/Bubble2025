@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
     Transform weapon;
     float timeout;
     Animator animator;
-    BoxCollider2D collider;
+    BoxCollider2D playerCollider;
     Vector2 colliderSize;
 
     public int maxHealth = 16;
@@ -26,8 +27,8 @@ public class PlayerController : MonoBehaviour
         weapon = transform.GetChild(0);
         timeout = bulletTimeout;
         animator = GetComponent<Animator>();
-        collider = GetComponent<BoxCollider2D>();
-        colliderSize = collider.size;
+        playerCollider = GetComponent<BoxCollider2D>();
+        colliderSize = playerCollider.size;
 
         health = maxHealth;
     }
@@ -44,13 +45,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S)) {
             animator.Play("crouch");
-            collider.size = new Vector2(colliderSize.x, colliderSize.y*0.75f);
-            collider.offset = new Vector2(0, -0.3f);
+            playerCollider.size = new Vector2(colliderSize.x, colliderSize.y*0.75f);
+            playerCollider.offset = new Vector2(0, -0.3f);
         }
         if (Input.GetKeyUp(KeyCode.S)) {
             animator.Play("uncrouch");
-            collider.size = colliderSize;
-            collider.offset = Vector2.zero;
+            playerCollider.size = colliderSize;
+            playerCollider.offset = Vector2.zero;
         }
 
         float yMotion = Input.GetAxis("Vertical");
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
             }
 
             if (health <= 0)
-                Application.LoadLevel(0);
+                SceneManager.LoadScene(0);
         }
     }
 
