@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
     public float bulletTimeout;
     public Gun gun;
+    public Wand wand;
     public DirtyScreen dirtyScreen;
 
     Rigidbody2D rbd;
@@ -71,6 +72,14 @@ public class PlayerController : MonoBehaviour
 
             if (health <= 0)
                 SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (wand != null)
+                wand.MakeBubble();
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            if (wand != null)
+                wand.StopBubble();
         }
     }
 

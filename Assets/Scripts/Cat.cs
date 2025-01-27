@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cat : MonoBehaviour
 {
@@ -95,8 +97,10 @@ public class Cat : MonoBehaviour
         };
         catCollider.size = colliderSize * stateScale;
         catTrigger.size = colliderSize * stateScale;
-        if (stateIdx >= 3)
+        if (stateIdx >= 3) {
             catTrigger.enabled = false;
+            StartCoroutine(LoadLevel(1));
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collider)
@@ -125,5 +129,10 @@ public class Cat : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    IEnumerator LoadLevel(int levelId) {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(levelId);
     }
 }

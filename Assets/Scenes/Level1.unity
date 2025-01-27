@@ -415,10 +415,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1593590083025667249, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cba27f3c30e1d3f429286578e34e9c1d, type: 3}
+    - target: {fileID: 4813410363310645581, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 176911ba6184b7c09991a0f32d2ec71a, type: 3}
     - target: {fileID: 5455598297369234426, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
       propertyPath: m_Name
       value: DirtyScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5922176886403418087, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 447e47538c9b951c283d0123156d9a7e, type: 3}
+    - target: {fileID: 8031548729324840481, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29a49f683a9941059a089bf3e3f95997, type: 3}
     - target: {fileID: 9111289632092664495, guid: 84fa21e8b30e41193ac2b29e3fb8fdab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -687,7 +703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5435209892939362672, guid: d9312908add8fb831a2c46d3c4827dfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9312908add8fb831a2c46d3c4827dfc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1400,6 +1416,7 @@ MonoBehaviour:
   rotateSpeed: 1
   bulletTimeout: 0.1
   gun: {fileID: 1735416607}
+  wand: {fileID: 0}
   dirtyScreen: {fileID: 1318118103}
   maxHealth: 16
   health: 0
@@ -1534,6 +1551,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9184558887677879730}
     m_Modifications:
+    - target: {fileID: 3179479670397897533, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179479670397897533, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179479670397897533, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd4953090c82ba4299c2714b85ac271a, type: 3}
+    - target: {fileID: 3179479670397897533, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4215187728780860530, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.437
@@ -1577,6 +1610,22 @@ PrefabInstance:
     - target: {fileID: 4249732236165477397, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612857431555643266, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612857431555643266, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612857431555643266, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a1dd04e7a4bcc4e6be26d5ad4c658dd, type: 3}
+    - target: {fileID: 7612857431555643266, guid: 6431db16796f02c1cb7238468cd72263, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
