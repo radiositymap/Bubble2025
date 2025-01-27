@@ -97,5 +97,6 @@ public class PlayerController : MonoBehaviour
         float hitPercent = (float)(maxHealth - health) / (float)maxHealth;
         int stateIdx = (int)(hitPercent * (dirtyScreen.screenNum - 1));
         dirtyScreen.SetScreen(stateIdx);
+        dirtyScreen.DrawRandomSplotch();
   }
 }
