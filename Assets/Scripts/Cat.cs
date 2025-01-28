@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,7 @@ public class Cat : MonoBehaviour
     public int maxHealth = 9;
     public int health;
     public Sprite[] healthStates;
+    public DialogueController catDialogue;
 
     // Movement
     private Rigidbody2D rb;
@@ -25,6 +27,7 @@ public class Cat : MonoBehaviour
     public float jumpVelocity = 10f;
 
     Vector2 colliderSize;
+    GameState prevGameState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,13 +50,19 @@ public class Cat : MonoBehaviour
     {
         // health -= (int)Time.deltaTime;
 
-        if (health > 0)
-        {
-            if (isGrounded)
+        if (Game.game.currentState == GameState.RUNNING) {
+            if (prevGameState == GameState.INTRO)
+                catDialogue.PlayDialogue(0);
+
+            if (health > 0)
             {
-                JumpToPosition(personTransform.position);
+                if (isGrounded)
+                {
+                    JumpToPosition(personTransform.position);
+                }
             }
         }
+        prevGameState = Game.game.currentState;
     }
 
     public void JumpToPosition(Vector2 targetPosition)
@@ -132,6 +141,8 @@ public class Cat : MonoBehaviour
     }
 
     IEnumerator LoadLevel(int levelId) {
+        Game.game.currentState = GameState.ENDED;
+        catDialogue.PlayDialogue(1);
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene(levelId);
     }
