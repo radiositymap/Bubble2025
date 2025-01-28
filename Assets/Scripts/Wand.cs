@@ -6,16 +6,20 @@ public class Wand : MonoBehaviour
     public GameObject bubble;
     public Transform shootingPoint;
     public float growthRate;
+    public float shootForce;
     GameObject newBubble;
+    Rigidbody2D bubbleRbd;
 
     public void MakeBubble() {
         newBubble = Instantiate(bubble, shootingPoint.position, Quaternion.identity);
-        newBubble.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        bubbleRbd = newBubble.GetComponent<Rigidbody2D>();
+        bubbleRbd.bodyType = RigidbodyType2D.Kinematic;
         newBubble.SetActive(true);
     }
 
     public void StopBubble() {
         newBubble.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        bubbleRbd.AddForce(transform.right * shootForce);
         newBubble = null;
     }
 

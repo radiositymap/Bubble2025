@@ -29,6 +29,11 @@ public class DialogueController : MonoBehaviour
     void Update() {
         // maintain rotation
         transform.eulerAngles = Vector3.zero;
+        // give buffer
+        if (transform.position.x < -8)
+            transform.position += new Vector3(3, 0, 0);
+        if (transform.position.x > 8)
+            transform.position -= new Vector3(3, 0, 0);
     }
 
     IEnumerator PlayDialogue() {
@@ -48,7 +53,7 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator PlayDialogueById(int dialogueId) {
         if (dialogueId >= dialogueLines.Count)
-            yield return null;
+            yield break;
 
         Dialogue line = dialogueLines[dialogueId];
         dialogueText.transform.SetLocalPositionAndRotation(

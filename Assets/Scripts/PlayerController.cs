@@ -110,6 +110,10 @@ public class PlayerController : MonoBehaviour
             health -= 1;
             handleHit();
         }
+        if (collider.gameObject.CompareTag("Finish")) {
+            myDialogue.PlayDialogue(1);
+            game.currentState = GameState.ENDED;
+        }
     }
 
     private void handleHit()
