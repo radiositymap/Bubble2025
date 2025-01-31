@@ -8,6 +8,8 @@ public class DialogueController : MonoBehaviour
 {
     public bool isIntro;
     public bool autoPlay;
+    public bool showPauseScreen;
+    public PauseController pauseScreen;
     public Text dialogueText;
     public List<Dialogue> dialogueLines;
     private float currentDelay;
@@ -44,19 +46,6 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    IEnumerator PlayDialogue_old()
-    {
-        foreach (Dialogue line in dialogueLines)
-        {
-            dialogueText.transform.SetLocalPositionAndRotation(
-                line.position, Quaternion.Euler(line.rotation));
-            dialogueText.text = line.text;
-            yield return new WaitForSeconds(line.delay);
-        }
-        gameObject.SetActive(false);
-        game.currentState = GameState.RUNNING;
-    }
-
     IEnumerator PlayDialogue()
     {
         foreach (Dialogue line in dialogueLines)
@@ -64,17 +53,17 @@ public class DialogueController : MonoBehaviour
             dialogueText.transform.SetLocalPositionAndRotation(
                 line.position, Quaternion.Euler(line.rotation));
             dialogueText.text = line.text;
-            // yield return new WaitForSeconds(line.delay);
             currentDelay = line.delay;
             while (currentDelay > 0)
             {
-                Debug.Log(currentDelay);
                 currentDelay -= Time.deltaTime;
                 yield return null;
             }
         }
         gameObject.SetActive(false);
         game.currentState = GameState.RUNNING;
+        if (showPauseScreen)
+            pauseScreen.Pause();
     }
 
 

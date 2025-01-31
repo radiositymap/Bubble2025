@@ -418,6 +418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntro: 1
   autoPlay: 1
+  showPauseScreen: 1
+  pauseScreen: {fileID: 1830116852}
   dialogueText: {fileID: 1100382298}
   dialogueLines:
   - text: zzz . . .
@@ -1047,6 +1049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntro: 0
   autoPlay: 0
+  showPauseScreen: 0
+  pauseScreen: {fileID: 0}
   dialogueText: {fileID: 821673191}
   dialogueLines:
   - text: RAWR!
@@ -1170,7 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2134,6 +2138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntro: 0
   autoPlay: 0
+  showPauseScreen: 0
+  pauseScreen: {fileID: 0}
   dialogueText: {fileID: 1167581312}
   dialogueLines:
   - text: What in the world??

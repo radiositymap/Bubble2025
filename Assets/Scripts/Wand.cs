@@ -18,6 +18,8 @@ public class Wand : MonoBehaviour
     }
 
     public void StopBubble() {
+        if (newBubble == null)
+            return;
         newBubble.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bubbleRbd.AddForce(transform.right * shootForce);
         newBubble = null;

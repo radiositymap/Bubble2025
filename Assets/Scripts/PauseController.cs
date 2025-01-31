@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 public class PauseController : MonoBehaviour
 {
     public GameObject controlsPanel;
+    GameState prevState = GameState.RUNNING;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,14 +20,26 @@ public class PauseController : MonoBehaviour
             if (controlsPanel.activeSelf)
             {
                 Debug.Log("Resume");
-                controlsPanel.SetActive(false);
+                Resume();
             }
             else
             {
                 Debug.Log("Pause");
-                controlsPanel.SetActive(true);
-                Time.timeScale = 0;
+                Pause();
             }
         }
+    }
+
+    public void Pause() {
+        controlsPanel.SetActive(true);
+        Time.timeScale = 0;
+        prevState = Game.game.currentState;
+        Game.game.currentState = GameState.PAUSED;
+    }
+
+    public void Resume() {
+        controlsPanel.SetActive(false);
+        Time.timeScale = 1f;
+        Game.game.currentState = prevState;
     }
 }
