@@ -32,17 +32,20 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        // maintain rotation
-        transform.eulerAngles = Vector3.zero;
-        // give buffer
-        if (transform.position.x < -8)
-            transform.position += new Vector3(3, 0, 0);
-        if (transform.position.x > 8)
-            transform.position -= new Vector3(3, 0, 0);
+        if (game.currentState == GameState.INTRO ||
+            game.currentState == GameState.RUNNING) {
+            // maintain rotation
+            transform.eulerAngles = Vector3.zero;
+            // give buffer
+            if (transform.position.x < -8)
+                transform.position += new Vector3(3, 0, 0);
+            if (transform.position.x > 8)
+                transform.position -= new Vector3(3, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            currentDelay = 0;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                currentDelay = 0;
+            }
         }
     }
 
