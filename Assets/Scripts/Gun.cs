@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IPointerClickHandler
 {
     public GameObject bullet;
     public Transform shootingPoint;
     public float bulletSpeed;
+    public Action OnClick;
 
     List<GameObject> bullets = new List<GameObject>();
 
@@ -56,4 +58,9 @@ public class Gun : MonoBehaviour
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        for (int i=0; i<10; i++)
+            OnClick();
+    }
 }

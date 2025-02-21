@@ -42,7 +42,7 @@ public class DialogueController : MonoBehaviour
             if (transform.position.x > 8)
                 transform.position -= new Vector3(3, 0, 0);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 currentDelay = 0;
             }

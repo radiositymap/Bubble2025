@@ -15,6 +15,14 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)) {
+            if (controlsPanel.activeSelf)
+            {
+                Debug.Log("Resume");
+                Resume();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (controlsPanel.activeSelf)
